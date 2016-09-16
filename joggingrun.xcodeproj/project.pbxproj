@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		849E86F01D8CA31C00FF9C4C /* run2.png in Resources */ = {isa = PBXBuildFile; fileRef = 849E86EF1D8CA31C00FF9C4C /* run2.png */; };
 		84A021031D8A513900789710 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A021021D8A513900789710 /* AppDelegate.swift */; };
 		84A021051D8A513900789710 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A021041D8A513900789710 /* ViewController.swift */; };
 		84A021081D8A513900789710 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A021061D8A513900789710 /* Main.storyboard */; };
@@ -14,6 +15,8 @@
 		84A0210D1D8A513900789710 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A0210B1D8A513900789710 /* LaunchScreen.storyboard */; };
 		84A021181D8A513900789710 /* joggingrunTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A021171D8A513900789710 /* joggingrunTests.swift */; };
 		84A021231D8A513900789710 /* joggingrunUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A021221D8A513900789710 /* joggingrunUITests.swift */; };
+		84A021311D8A54A200789710 /* run1.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A021301D8A54A200789710 /* run1.png */; };
+		84A021331D8A594500789710 /* joggingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A021321D8A594500789710 /* joggingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		849E86EF1D8CA31C00FF9C4C /* run2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = run2.png; sourceTree = "<group>"; };
 		84A020FF1D8A513900789710 /* joggingrun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = joggingrun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A021021D8A513900789710 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84A021041D8A513900789710 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +51,8 @@
 		84A0211E1D8A513900789710 /* joggingrunUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = joggingrunUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A021221D8A513900789710 /* joggingrunUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = joggingrunUITests.swift; sourceTree = "<group>"; };
 		84A021241D8A513900789710 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84A021301D8A54A200789710 /* run1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = run1.png; sourceTree = "<group>"; };
+		84A021321D8A594500789710 /* joggingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = joggingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +105,13 @@
 			children = (
 				84A021021D8A513900789710 /* AppDelegate.swift */,
 				84A021041D8A513900789710 /* ViewController.swift */,
+				84A021321D8A594500789710 /* joggingViewController.swift */,
 				84A021061D8A513900789710 /* Main.storyboard */,
 				84A021091D8A513900789710 /* Assets.xcassets */,
 				84A0210B1D8A513900789710 /* LaunchScreen.storyboard */,
 				84A0210E1D8A513900789710 /* Info.plist */,
+				84A021301D8A54A200789710 /* run1.png */,
+				849E86EF1D8CA31C00FF9C4C /* run2.png */,
 			);
 			path = joggingrun;
 			sourceTree = "<group>";
@@ -235,6 +244,8 @@
 				84A0210D1D8A513900789710 /* LaunchScreen.storyboard in Resources */,
 				84A0210A1D8A513900789710 /* Assets.xcassets in Resources */,
 				84A021081D8A513900789710 /* Main.storyboard in Resources */,
+				84A021311D8A54A200789710 /* run1.png in Resources */,
+				849E86F01D8CA31C00FF9C4C /* run2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84A021331D8A594500789710 /* joggingViewController.swift in Sources */,
 				84A021051D8A513900789710 /* ViewController.swift in Sources */,
 				84A021031D8A513900789710 /* AppDelegate.swift in Sources */,
 			);
@@ -410,6 +422,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.breadncup.joggingrun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos.internal;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -422,6 +435,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.breadncup.joggingrun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos.internal;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -495,6 +509,7 @@
 				84A021291D8A513900789710 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84A0212A1D8A513900789710 /* Build configuration list for PBXNativeTarget "joggingrunTests" */ = {
 			isa = XCConfigurationList;
@@ -503,6 +518,7 @@
 				84A0212C1D8A513900789710 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84A0212D1D8A513900789710 /* Build configuration list for PBXNativeTarget "joggingrunUITests" */ = {
 			isa = XCConfigurationList;
@@ -511,6 +527,7 @@
 				84A0212F1D8A513900789710 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -10,8 +10,9 @@
 #define RunViewController_h
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface RunViewController : UIViewController
+@interface RunViewController : UIViewController <CLLocationManagerDelegate>
 
 
 @end

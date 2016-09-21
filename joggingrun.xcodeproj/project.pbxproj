@@ -16,6 +16,8 @@
 		84A30CEB1D9230EF00137ECC /* run2.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A30CE91D9230EF00137ECC /* run2.png */; };
 		84A30CED1D9231A600137ECC /* RunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A30CEC1D9231A600137ECC /* RunViewController.m */; };
 		84A30CF01D9240FF00137ECC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A30CEF1D9240FF00137ECC /* Main.storyboard */; };
+		84A30CF31D92437D00137ECC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A30CF21D92437D00137ECC /* CoreLocation.framework */; };
+		84A30CF61D9253F900137ECC /* MathUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A30CF51D9253F900137ECC /* MathUtil.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,9 @@
 		84A30CEC1D9231A600137ECC /* RunViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunViewController.m; sourceTree = "<group>"; };
 		84A30CEE1D9231B400137ECC /* RunViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RunViewController.h; sourceTree = "<group>"; };
 		84A30CEF1D9240FF00137ECC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		84A30CF21D92437D00137ECC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.Internal.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
+		84A30CF41D9253E500137ECC /* MathUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MathUtil.h; sourceTree = "<group>"; };
+		84A30CF51D9253F900137ECC /* MathUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathUtil.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84A30CF31D92437D00137ECC /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +57,7 @@
 			children = (
 				84A30CCC1D922E2200137ECC /* joggingrun */,
 				84A30CCB1D922E2200137ECC /* Products */,
+				84A30CF11D92437D00137ECC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,6 +76,8 @@
 				84A30CD11D922E2200137ECC /* AppDelegate.m */,
 				84A30CD31D922E2200137ECC /* MainViewController.h */,
 				84A30CD41D922E2200137ECC /* MainViewController.m */,
+				84A30CF41D9253E500137ECC /* MathUtil.h */,
+				84A30CF51D9253F900137ECC /* MathUtil.m */,
 				84A30CEE1D9231B400137ECC /* RunViewController.h */,
 				84A30CEC1D9231A600137ECC /* RunViewController.m */,
 				84A30CD91D922E2200137ECC /* Assets.xcassets */,
@@ -88,6 +97,14 @@
 				84A30CCE1D922E2200137ECC /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		84A30CF11D92437D00137ECC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84A30CF21D92437D00137ECC /* CoreLocation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,6 +139,11 @@
 					84A30CC91D922E2200137ECC = {
 						CreatedOnToolsVersion = 8.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -167,6 +189,7 @@
 				84A30CD21D922E2200137ECC /* AppDelegate.m in Sources */,
 				84A30CED1D9231A600137ECC /* RunViewController.m in Sources */,
 				84A30CCF1D922E2200137ECC /* main.m in Sources */,
+				84A30CF61D9253F900137ECC /* MathUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,10 +295,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
 				INFOPLIST_FILE = joggingrun/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.breadncup.joggingrun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos.internal;
 			};
 			name = Debug;
 		};
@@ -283,10 +308,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
 				INFOPLIST_FILE = joggingrun/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.breadncup.joggingrun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos.internal;
 			};
 			name = Release;
 		};

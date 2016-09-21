@@ -1,18 +1,18 @@
 //
-//  ViewController.m
+//  MainViewController.m
 //  joggingrun
 //
 //  Created by YOUNGWHAN SONG on 9/20/16.
 //  Copyright © 2016 YOUNGWHAN SONG. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MainViewController.h"
 
-@interface ViewController ()
+@interface MainViewController ()
 
 @end
 
-@implementation ViewController
+@implementation MainViewController
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
@@ -23,6 +23,11 @@
 - (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning];
 	// Dispose of any resources that can be recreated.
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+	if ([segue.identifier isEqualToString:@"showRunView"]) {
+	}
 }
 
 

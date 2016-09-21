@@ -25,6 +25,14 @@
                                     <segue destination="GCB-wl-nxu" kind="showDetail" id="IeS-tm-KRX"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yMu-ja-ePG">
+                                <frame key="frameInset" minX="183" minY="382" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h8E-Ey-mLt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -61,19 +69,36 @@
                                     <action selector="stopAction:" destination="GCB-wl-nxu" eventType="touchUpInside" id="yhw-Qo-zu7"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TWo-LA-8dz">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6V9-Gi-HMg">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Fkn-Kq-9cZ" firstAttribute="leading" secondItem="b6x-zk-egS" secondAttribute="leadingMargin" constant="81" id="3Fn-bz-vIO"/>
+                            <constraint firstItem="6V9-Gi-HMg" firstAttribute="leading" secondItem="TWo-LA-8dz" secondAttribute="trailing" constant="84" id="G5s-gG-wlR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hkh-2J-OWp" secondAttribute="trailing" constant="75" id="SAk-OM-cjn"/>
                             <constraint firstAttribute="bottom" secondItem="Fkn-Kq-9cZ" secondAttribute="bottom" constant="20" symbolic="YES" id="hF5-zY-uqw"/>
                             <constraint firstItem="Fkn-Kq-9cZ" firstAttribute="baseline" secondItem="hkh-2J-OWp" secondAttribute="baseline" id="ira-wA-EWD"/>
+                            <constraint firstItem="TWo-LA-8dz" firstAttribute="centerX" secondItem="Fkn-Kq-9cZ" secondAttribute="centerX" id="nOO-Z6-Vql"/>
+                            <constraint firstItem="TWo-LA-8dz" firstAttribute="baseline" secondItem="6V9-Gi-HMg" secondAttribute="baseline" id="xOP-PL-gvY"/>
+                            <constraint firstItem="Fkn-Kq-9cZ" firstAttribute="top" secondItem="TWo-LA-8dz" secondAttribute="bottom" constant="22" id="yNx-7w-Hwn"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="distanceValue" destination="6V9-Gi-HMg" id="Uep-eB-EDg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gs4-i4-z0A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="394" y="117"/>
+            <point key="canvasLocation" x="392.75362318840581" y="116.57608695652175"/>
         </scene>
     </scenes>
 </document>

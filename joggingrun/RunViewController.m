@@ -37,6 +37,7 @@ CLLocationDistance fTotalDistance;
 CFTimeInterval fStartTime = 0;
 CFTimeInterval fTotalSeconds = 0;
 CLLocationSpeed fSpeed = 0;
+NSTimer *fTimer = nil;
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
 	if (self = [super initWithCoder:aDecoder]) {
@@ -89,12 +90,22 @@ CLLocationSpeed fSpeed = 0;
 	fTotalSeconds = 0;
 }
 
+- (void) targetMethod {
+	// Every 2.0 seconds, this is called.
+}
+
 - (IBAction)runAction:(id)sender {
 	if ( fRunner && !isRunning ) {
 		[fRunner startAnimating];
 		isRunning = true;
 		[self initInternal];
 		[fLocationManager startUpdatingLocation];
+		
+		fTimer = [NSTimer scheduledTimerWithTimeInterval:2.0
+										 target:self
+									   selector:@selector(targetMethod)
+									   userInfo:nil
+										repeats:YES];
 	}
 }
 
@@ -104,6 +115,8 @@ CLLocationSpeed fSpeed = 0;
 		[fLocationManager stopUpdatingLocation];
 		isRunning = false;
 		[self initInternal];
+		if ( fTimer )
+			[fTimer invalidate];
 	}
 }
 

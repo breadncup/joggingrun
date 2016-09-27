@@ -6,9 +6,11 @@
 //  Copyright © 2016 YOUNGWHAN SONG. All rights reserved.
 //
 
+#import <AVFoundation/AVFoundation.h>
 #import <QuartzCore/QuartzCore.h>
 #import "RunViewController.h"
 #import "MathUtil.h"
+#import "FliteTTS.h"
 
 @interface RunViewController ()
 
@@ -17,6 +19,14 @@
 @property (strong, nonatomic) UIImageView *fRunner;
 @property (strong, nonatomic) CLLocationManager *fLocationManager;
 @property (strong, nonatomic) CLLocation *fPreviousLocationInfo;
+
+@property (weak, nonatomic) IBOutlet UISlider *fPitchValue;
+@property (weak, nonatomic) IBOutlet UISlider *fVarianceValue;
+@property (weak, nonatomic) IBOutlet UISlider *fVSpeedValue;
+@property (weak, nonatomic) IBOutlet UILabel *fPitchLabel;
+@property (weak, nonatomic) IBOutlet UILabel *fVarianceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *fVSpeedLabel;
+
 
 @end
 
@@ -28,6 +38,13 @@
 @synthesize fLocationManager;
 @synthesize fPreviousLocationInfo;
 
+@synthesize fPitchValue;
+@synthesize fVarianceValue;
+@synthesize fVSpeedValue;
+@synthesize fPitchLabel;
+@synthesize fVarianceLabel;
+@synthesize fVSpeedLabel;
+
 const int kRunnerWidth = 100;
 const int kRunnerHeight = 100;
 
@@ -37,6 +54,9 @@ CLLocationDistance fTotalDistance;
 CFTimeInterval fStartTime = 0;
 CFTimeInterval fTotalSeconds = 0;
 CLLocationSpeed fSpeed = 0;
+FliteTTS *fFliteEngine;	// https://bitbucket.org/sfoster/iphone-tts/src
+NSTimer *fTimer = nil;
+//dispatch_queue_t fQueue = nil;
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
 	if (self = [super initWithCoder:aDecoder]) {
@@ -52,6 +72,18 @@ CLLocationSpeed fSpeed = 0;
 			fRunner.animationImages = imgListArray;
 			fRunner.animationDuration = 1.0;
 		}
+		
+//		fPitchValue.value = 100.0;
+//		fVarianceValue.value = 100.0;
+//		fVSpeedValue.value = 0.8;
+		
+		fFliteEngine = [[FliteTTS alloc] init];
+		if ( fFliteEngine ) {
+//			[fFliteEngine setPitch:fPitchValue.value variance:fVarianceValue.value speed:fVSpeedValue.value];	// Change the voice properties
+//			[fFliteEngine setVoice:@"usenglish"];
+			
+		}
+//		fQueue = dispatch_queue_create( "joggingrun", nil );
 	}
 	
 	return self;
@@ -65,9 +97,9 @@ CLLocationSpeed fSpeed = 0;
 
 	if (fLocationManager) {
 		fLocationManager.delegate = self; // we set the delegate of locationManager to self.
-		fLocationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters; // setting the accuracy}
+		fLocationManager.desiredAccuracy = kCLLocationAccuracyBest; // setting the accuracy}
 		fLocationManager.activityType = CLActivityTypeFitness;
-		fLocationManager.distanceFilter = 5;
+		fLocationManager.distanceFilter = 10;
 		fLocationManager.allowsBackgroundLocationUpdates = true;
 		if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
 			[fLocationManager requestAlwaysAuthorization];
@@ -89,12 +121,33 @@ CLLocationSpeed fSpeed = 0;
 	fTotalSeconds = 0;
 }
 
+- (void)runScheduledTask {
+	if ( fFliteEngine ) {
+		[fFliteEngine setPitch:fPitchValue.value variance:fVarianceValue.value speed:fVSpeedValue.value];	// Change the voice properties
+	}
+	[fFliteEngine speakText:@"Hello everyone world championship competition race game. Junsung is the most strong candidate of gold medal. Has highest record than the rest of them. Average time 10 min with average speed 15 km/h"];
+//	dispatch_sync(fQueue, ^{
+//	});
+//	dispatch_sync(fQueue, ^{
+//		[fFliteEngine speakText:@"and Junsung is coming follow!"];
+//	});
+}
+
 - (IBAction)runAction:(id)sender {
 	if ( fRunner && !isRunning ) {
 		[fRunner startAnimating];
 		isRunning = true;
 		[self initInternal];
 		[fLocationManager startUpdatingLocation];
+		
+		fTimer = [NSTimer scheduledTimerWithTimeInterval:30.0
+										 target:self
+									   selector:@selector(runScheduledTask)
+									   userInfo:nil
+										repeats:YES];
+		[fFliteEngine speakText:@"Hello everyone world championship competition race game. Junsung is the most strong candidate of gold medal. Has highest record than the rest of them. Average time 10 min with average speed 15 kilometer per hour"];
+//		[fFliteEngine speakText:@"Okay, now, Daniel is just starting to run!"];
+		// Crowd Sound: https://www.youtube.com/watch?v=vYltefXSIHU
 	}
 }
 
@@ -104,6 +157,8 @@ CLLocationSpeed fSpeed = 0;
 		[fLocationManager stopUpdatingLocation];
 		isRunning = false;
 		[self initInternal];
+		[fFliteEngine stopTalking];				// stop talking
+		[fTimer invalidate];
 	}
 }
 
@@ -147,7 +202,7 @@ CLLocationSpeed fSpeed = 0;
 	// http://stackoverflow.com/questions/4152003/how-can-i-get-current-location-from-user-in-ios
 
 	for (CLLocation *newLocation in locations) {
-		if (newLocation.horizontalAccuracy < 6) {
+		if (newLocation.horizontalAccuracy < 20) {
 			// update distance
 			if (fPreviousLocationInfo) {
 				NSLog(@"total distance: %f", fTotalDistance);
@@ -164,6 +219,17 @@ CLLocationSpeed fSpeed = 0;
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
 	NSLog(@"Error");
+}
+
+- (IBAction)pitchAction:(id)sender {
+	fPitchLabel.text = [NSString stringWithFormat:@"%3.3f", fPitchValue.value];
+}
+- (IBAction)varianceAction:(id)sender {
+	fVarianceLabel.text = [NSString stringWithFormat:@"%3.3f", fVarianceValue.value];
+}
+
+- (IBAction)vspeedAction:(id)sender {
+	fVSpeedLabel.text = [NSString stringWithFormat:@"%3.3f", fVSpeedValue.value];
 }
 
 @end

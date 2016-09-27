@@ -31,9 +31,6 @@ static double const fMetersInMile = 1609.344;
 + (NSString *)stringifyDistance:(double)meters
 {
 	
-	if (meters==0) {
-		return @"0";
-	}
 	double unitDivider;
 	NSString *unitName;
  
@@ -108,10 +105,6 @@ static double const fMetersInMile = 1609.344;
 
 + (NSString *)stringifyAvgSpeed:(double)speed
 {
-	if (speed == 0) {
-		return @"0";
-	}
- 
 	double unitDivider;
 	NSString *unitName;
  
@@ -123,6 +116,10 @@ static double const fMetersInMile = 1609.344;
 	} else {
 		unitName = @"mile/h";
 		unitDivider = fMetersInMile;
+	}
+ 
+	if (speed <= 0) {
+		speed = 0;
 	}
  
 	return [NSString stringWithFormat:@"%.3f %@", (speed / unitDivider) * 60*60, unitName];

@@ -12,6 +12,8 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
+@class FliteTTS;
+
 @interface RunViewController : UIViewController <CLLocationManagerDelegate>
 
 

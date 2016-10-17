@@ -10,6 +10,9 @@
 #import "RunViewController.h"
 #import "MathUtil.h"
 
+#import <AVFoundation/AVFoundation.h>
+#import <AudioToolbox/AudioToolbox.h>
+
 @interface RunViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *fDistanceValue;
@@ -17,6 +20,7 @@
 @property (strong, nonatomic) UIImageView *fRunner;
 @property (strong, nonatomic) CLLocationManager *fLocationManager;
 @property (strong, nonatomic) CLLocation *fPreviousLocationInfo;
+@property (nonatomic, retain) AVAudioPlayer *myAudioPlayer;
 
 @end
 
@@ -27,6 +31,7 @@
 @synthesize fRunner;
 @synthesize fLocationManager;
 @synthesize fPreviousLocationInfo;
+@synthesize myAudioPlayer;
 
 const int kRunnerWidth = 100;
 const int kRunnerHeight = 100;
@@ -100,6 +105,14 @@ NSTimer *fTimer = nil;
 		isRunning = true;
 		[self initInternal];
 		[fLocationManager startUpdatingLocation];
+		
+		//start a background sound
+		NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"p1" ofType: @"mp3"];
+		NSURL *fileURL = [[NSURL alloc] initFileURLWithPath:soundFilePath ];
+		myAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:fileURL error:nil];
+		myAudioPlayer.numberOfLoops = -1; //infinite loop
+		[myAudioPlayer play];
+		
 		
 		fTimer = [NSTimer scheduledTimerWithTimeInterval:2.0
 										 target:self

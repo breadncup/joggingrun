@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		845A55D01DB0711200ECDC45 /* p1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 845A55CF1DB0711200ECDC45 /* p1.mp3 */; };
+		845A55D41DB074B000ECDC45 /* p1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 845A55D31DB0739500ECDC45 /* p1.caf */; };
 		84A30CCF1D922E2200137ECC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A30CCE1D922E2200137ECC /* main.m */; };
 		84A30CD21D922E2200137ECC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A30CD11D922E2200137ECC /* AppDelegate.m */; };
 		84A30CD51D922E2200137ECC /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A30CD41D922E2200137ECC /* MainViewController.m */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		845A55CF1DB0711200ECDC45 /* p1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = p1.mp3; sourceTree = "<group>"; };
+		845A55D31DB0739500ECDC45 /* p1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = p1.caf; sourceTree = "<group>"; };
 		84A30CCA1D922E2200137ECC /* joggingrun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = joggingrun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A30CCE1D922E2200137ECC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84A30CD01D922E2200137ECC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -86,6 +90,8 @@
 				84A30CDE1D922E2200137ECC /* Info.plist */,
 				84A30CE81D9230EF00137ECC /* run1.png */,
 				84A30CE91D9230EF00137ECC /* run2.png */,
+				845A55CF1DB0711200ECDC45 /* p1.mp3 */,
+				845A55D31DB0739500ECDC45 /* p1.caf */,
 				84A30CCD1D922E2200137ECC /* Supporting Files */,
 			);
 			path = joggingrun;
@@ -170,9 +176,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				845A55D41DB074B000ECDC45 /* p1.caf in Resources */,
 				84A30CEB1D9230EF00137ECC /* run2.png in Resources */,
 				84A30CF01D9240FF00137ECC /* Main.storyboard in Resources */,
 				84A30CDD1D922E2200137ECC /* LaunchScreen.storyboard in Resources */,
+				845A55D01DB0711200ECDC45 /* p1.mp3 in Resources */,
 				84A30CDA1D922E2200137ECC /* Assets.xcassets in Resources */,
 				84A30CEA1D9230EF00137ECC /* run1.png in Resources */,
 			);
